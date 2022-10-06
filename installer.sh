@@ -210,18 +210,18 @@ fi
 
 INSTALL_APP_LIST=()
 
-if [[ "$WSL" -eq 1 ]]; then
-  echo "[*] Starting dockerd manually in wsl environments:"
-  dockerd --iptables=false &
-  sleep 3
-  reset
-fi
+# if [[ "$WSL" -eq 1 ]]; then
+#   echo "[*] Starting dockerd manually in wsl environments:"
+#   dockerd --iptables=false &
+#   sleep 3
+#   reset
+# fi
 
 if [[ "$CVE_SEARCH" -ne 1 ]] || [[ "$DOCKER_SETUP" -ne 1 ]] || [[ "$IN_DOCKER" -eq 1 ]]; then
 
   I01_default_apps
 
-  I05_emba_docker_image_dl
+  # I05_emba_docker_image_dl
 
   IP00_extractors
 
