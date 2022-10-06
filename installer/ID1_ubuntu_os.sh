@@ -47,19 +47,19 @@ ID1_ubuntu_os() {
         rm external/libssl-dev_1.1.1-1ubuntu2.1~18.04.20_amd64.deb
     fi
 
-    if [[ "$WSL" -eq 1 ]]; then
-      # docker installation on Ubuntu jammy in WSL environment is somehow broken
-      echo -e "\\n""$MAGENTA""$BOLD""Docker installation for Ubuntu:jammy in WSL environment!""$NC"
+    #if [[ "$WSL" -eq 1 ]]; then
+    #  # docker installation on Ubuntu jammy in WSL environment is somehow broken
+    #  echo -e "\\n""$MAGENTA""$BOLD""Docker installation for Ubuntu:jammy in WSL environment!""$NC"
 
-      apt-get install lsb-release ca-certificates apt-transport-https software-properties-common -y
+    #  apt-get install lsb-release ca-certificates apt-transport-https software-properties-common -y
 
-      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+    #  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-      echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+    #  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 
-      apt-get update
-      apt-get install docker-ce -y
-    fi
+    #  apt-get update
+    #  apt-get install docker-ce -y
+    #fi
   fi
 }
 
