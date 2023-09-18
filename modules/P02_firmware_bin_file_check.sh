@@ -133,8 +133,10 @@ fw_bin_detector() {
   local FILE_BIN_OUT=""
   local DLINK_ENC_CHECK=""
   local QNAP_ENC_CHECK=""
+  local VMDK_CHECK=""
   local AVM_CHECK=0
   local UEFI_CHECK=0
+  
 
   set_p02_default_exports
 
@@ -286,6 +288,12 @@ fw_bin_detector() {
       export ZYXEL_ZIP=1
       write_csv_log "ZyXel encrypted ZIP" "yes" ""
     fi
+  fi
+  # Disk DescriptorFile in head (vmdk)
+  if strings "$CHECK_FILE" | grep -q "# Disk DescriptorFile" ; then
+    print_output "[+] Identified VMWware VMDK archive file - using VMDK extraction module"
+    export VMDK_DETECTED=1
+    write_csv_log "VMDK" "yes" "NA"
   fi
   print_ln
 }
