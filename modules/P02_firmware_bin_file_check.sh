@@ -134,7 +134,6 @@ fw_bin_detector() {
   local DLINK_ENC_CHECK=""
   local QNAP_ENC_CHECK=""
   local VMDK_CHECK=""
-  local VMDK_CHECK=""
   local AVM_CHECK=0
   local UEFI_CHECK=0
   
