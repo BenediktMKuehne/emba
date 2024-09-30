@@ -58,7 +58,7 @@ L10_system_emulation() {
     export R_PATH=""
     ### export IP_ADDRESS_=""
 
-    # if we have a supported arch we move on with out emulation attempt
+    # if we have a supported arch we move on with emulation attempt
     if [[ "${ARCH}" == "MIPS"* || "${ARCH}" == "ARM"* || "${ARCH}" == "x86" ]]; then
 
       check_bmc_supermicro
